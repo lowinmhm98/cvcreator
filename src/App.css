@@ -1,0 +1,330 @@
+.App {
+  text-align: center;
+  flex:1 1 0;
+  
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.App {
+  display:flex;
+ 
+  flex-direction:column;
+  position: relative; 
+  
+
+  
+}
+
+
+
+
+.cvInfo {
+  display:flex;
+  
+  flex-direction:column;
+  flex: 1 0 0;
+  padding:16px;
+ 
+  
+}
+
+ 
+.education button,
+.experience button {
+  align-self: flex-start;
+  
+  
+  
+  
+  padding:0px 8px 0px;
+}
+
+
+.education,
+.experience {
+  flex-direction: column;
+  flex:1 1 0;
+  
+  
+
+}
+
+
+.experience .section {
+  display:flex;
+  flex:none;
+  justify-content: space-between;
+  position:relative;
+  border-top: 2px solid rgba(54, 28, 170,1);
+  border-bottom: 2px solid rgba(54, 28, 170,1);
+  padding :  8px 0px 8px;
+  color:rgba(54, 28, 170,1)
+
+}
+
+.education .section {
+  display: flex;
+  flex:none;
+  border-top: 2px solid rgba(54, 28, 170,1);
+  border-bottom: 2px solid rgba(54, 28, 170,1);
+  padding :  8px 0px 8px;
+  color:rgba(54, 28, 170,1);
+  justify-content: space-between;
+}
+
+
+img {
+  width: 200px;
+  height:200px;
+  border-radius: 50%;
+  border: 3px solid antiquewhite;
+  
+}
+
+
+
+
+
+
+.AdditionalInfo fieldset button {
+  position:static;
+  background-color: white;
+  border-color: black;
+  border-radius: 0px;
+  padding:0px;
+  color:black;
+}
+.content {
+  display:flex;
+  flex:1 1 0;
+  
+}
+
+
+fieldset div {
+  display:flex;
+  flex-direction: column;
+}
+
+
+.buttons {
+  flex-direction: row;
+  gap:8px;
+  padding-top:8px;
+}
+
+
+label {
+  align-self: flex-start;
+}
+
+.item {
+  display: flex;
+  gap:100px;
+  flex:1 1 0;
+
+}
+
+.item div {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+
+p {
+  margin:0;
+}
+
+
+.Tocreate {
+  flex-direction: column;
+  
+}
+
+
+
+
+
+ .generalDescription button {
+  align-self: center;
+  position: absolute;
+  right: 0%;
+  
+}
+
+
+.generalDescription {
+  position:relative;
+  flex:0.5 1 0;
+  display:flex;
+  justify-content: center;
+}
+
+.generalDescription  fieldset {
+ align-self: center;
+}
+
+
+.generalDescription  fieldset button {
+  position: static;
+}
+
+
+
+
+
+
+.AdditionalInfo {
+  display:flex;
+  flex-direction:column;
+  
+  position:relative;
+  background-color:rgb(54, 28, 170);
+  color: antiquewhite;
+  padding:32px;
+  justify-content: space-between;
+  
+  
+}
+
+.AdditionalInfo .Tomodify {
+  position:relative;
+  display:flex;
+  flex-direction: column;
+  padding-top:8px;
+  border-top:1px solid antiquewhite
+}
+
+.AdditionalInfo button {
+  
+  position:absolute;
+  bottom:50%;
+  align-self: center;
+ 
+  
+  
+  padding:8px;
+  
+}
+
+
+.AdditionalInfo fieldset {
+  bottom:0%
+}
+
+
+
+
+#root {
+  padding:0px 250px 0px 250px;
+  margin:0px;
+  height:100vh;
+  display:flex;
+}
+
+
+
+
+
+
+
+
+h1,h2 {
+  color: rgba(45, 23, 143, 1)
+}
+
+
+fieldset {
+  display:flex;
+  flex-direction:column;
+  position:absolute;
+  background-color: white;
+  right:0%;
+  color:black;
+  z-index: 1;
+
+  
+  
+  
+}
+
+
+
+
+.image {
+  display:flex;
+  flex-direction: column;
+  position:relative;
+}
+
+.image input {
+ 
+  display:none;
+
+}
+
+
+
+.cvDynamic {
+  display:flex;
+  flex-direction: column;
+  position:relative;
+  flex: 1 1 0;
+}
+
+
+#Experience,
+#Education {
+  display:flex;
+  flex-direction: column;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
