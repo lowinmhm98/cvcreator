@@ -5,6 +5,7 @@ import {GiveGenDescr} from './GiveGenDescr.js'
 import {Education} from './Education.js'
 import {Experience} from './Experience.js'
 import {AdditionalInfo} from  './AdditionalInfo'
+
 class App extends Component {
  
   constructor(props) {
@@ -23,6 +24,7 @@ class App extends Component {
      
   <div className="content">
    <AdditionalInfo/>
+  
   <div className='cvInfo'>
    <GiveGenDescr/>
   <div className='cvDynamic'>

@@ -23,13 +23,9 @@ class Experience extends Component {
         this.handleAddPress=this.handleAddPress.bind(this)
         this.manageClickExit=this.manageClickExit.bind(this);
         this.manageClickAddJob=this.manageClickAddJob.bind(this)
-        this.handleCompanyPress= this.handleCompanyPress.bind(this)
-        this.handleTitlePress= this.handleTitlePress.bind(this);
-        this.handleStartPress= this.handleStartPress.bind(this);
-        this.handleEndPress= this.handleEndPress.bind(this);
-        this.handleDescrptionPress= this.handleDescrptionPress.bind(this);
-        this.handleLocationPress= this.handleLocationPress.bind(this);
+        this.handleInputPress= this.handleInputPress.bind(this)
         this.deleteItem=this.deleteItem.bind(this)
+        this.handleSubmit=this.handleSubmit.bind(this)
 
     
     }
@@ -67,80 +63,43 @@ class Experience extends Component {
         } ))
       }
 
-
-      handleCompanyPress (e) {
-        this.setState((previousState )=> ({
-            Jobs : {title: previousState.Jobs.title,
-            company: e.target.value,
-            startdate: previousState.Jobs.startdate, 
-            enddate: previousState.Jobs.enddate, 
-            location: previousState.Jobs.location,
-            description: previousState.Jobs.description }
-          } ))
-      }
-
-      handleStartPress (e) {
-        this.setState((previousState )=> ({
-            Jobs : {title: previousState.Jobs.title,
-            company: previousState.Jobs.company,
-            startdate: e.target.value, 
-            enddate: previousState.Jobs.enddate, 
-            location: previousState.Jobs.location,
-            description: previousState.Jobs.description }
-          } ))
-      }
-      handleEndPress (e) {
-        this.setState((previousState )=> ({
-            Jobs : {title: previousState.Jobs.title,
-            company: previousState.Jobs.company,
-            startdate: previousState.Jobs.startdate, 
-            enddate: e.target.value, 
-            location: previousState.Jobs.location,
-            description: previousState.Jobs.description }
-          } ))
+      handleSubmit (e) {
+        e.preventDefault();
+        e.target.reset()
       }
 
 
-      handleLocationPress (e) {
+      handleInputPress (e) {
+       
+
         this.setState((previousState )=> ({
-            Jobs : {title: previousState.Jobs.title,
-            company: previousState.Jobs.company,
-            startdate: previousState.Jobs.startdate, 
-            enddate: previousState.Jobs.enddate, 
-            location: e.target.value,
-            description: previousState.Jobs.description }
+            Jobs : 
+            {title:(e.target.getAttribute("id")=== "title"?e.target.value:previousState.Jobs.title) ,
+            company: (e.target.getAttribute("id")=== "company"?e.target.value:previousState.Jobs.company),
+            startdate: (e.target.getAttribute("id")=== "startdate"?e.target.value:previousState.Jobs.startdate), 
+            enddate: (e.target.getAttribute("id")=== "enddate"?e.target.value:previousState.Jobs.enddate), 
+            location: (e.target.getAttribute("id")=== "location"?e.target.value:previousState.Jobs.location),
+            description: (e.target.getAttribute("id")=== "description"?e.target.value:previousState.Jobs.description) }
           } ))
       }
 
+      
 
-      handleDescrptionPress (e) {
-        this.setState((previousState )=> ({
-            Jobs : {title: previousState.Jobs.title,
-            company: previousState.Jobs.company,
-            startdate: previousState.Jobs.startdate, 
-            enddate: previousState.Jobs.enddate, 
-            location: previousState.Jobs.location,
-            description: e.target.value }
-          } ))
+
+    manageClickAddJob (e) {
+        
+        let inputs= (e.target.parentElement.parentElement).getElementsByTagName("input")
+        
+      
+       
+       for (const input of inputs) {
+        console.log(input)
+        if (input.value === "") return;
       }
-
-
-      handleTitlePress (e) {
-        this.setState((previousState )=> ({
-            Jobs : {title: e.target.value,
-            company: previousState.Jobs.company,
-            startdate: previousState.Jobs.startdate, 
-            enddate: previousState.Jobs.enddate, 
-            location: previousState.Jobs.location,
-            description: previousState.Jobs.description }
-          } ))
-      }
-
-
-    manageClickAddJob () {
+        
         this.setState((previousState)=> ({
+           
            titles: previousState.titles.concat(previousState.Jobs),
-           count : previousState.count+1,
            Jobs: {company: "",
            title : "", 
            startdate:"",    
@@ -185,48 +144,51 @@ class Experience extends Component {
         if (this.state.addJobPressed) 
             
             {
-              addJobButton = (<fieldset>
+              addJobButton = (<form  onSubmit={this.handleSubmit}>
+                <fieldset id="firstfieldset">
                 <div>
                 <label htmlFor="company">Company</label>
-                <input type="text" id= "company" onChange={this.handleCompanyPress}/>
+                <input type="text" id= "company" required  onChange={this.handleInputPress}/>
                 </div>
                 <div>
                 <label htmlFor="title" >Title</label>
-                <input type="text" id= "title" onChange={this.handleTitlePress}/>
+                <input type="text" id= "title" required  onChange={this.handleInputPress}/>
                 </div>
                 <div>
                 <label htmlFor="stardate">Start Date</label>
-                <input type="textfield" id= "startdate" onChange={this.handleStartPress}/>
+                <input type="textfield" id= "startdate" required onChange={this.handleInputPress}/>
                 </div>
                 <div>
                 <label htmlFor="enddate">End date</label>
-                <input type="text" id= "enddate" onChange={this.handleEndPress}/>
+                <input type="text" id= "enddate" required  onChange={this.handleInputPress}/>
                 </div>
                 <div>
                 <label htmlFor="location" >Location</label>
-                <input type="text" id= "location" onChange={this.handleLocationPress}/>
+                <input type="text" id= "location"  required  onChange={this.handleInputPress} />
                 </div>
                 <div>
                 <label htmlFor="description">Description</label>
-                <input type="textfield" id= "description" onChange={this.handleDescrptionPress}/>
+                <input type="textfield" id= "description" required onChange={this.handleInputPress}/>
                 </div>
                 <div className='buttons'>
-                <button onClick={this.manageClickAddJob}>Add</button>
+                <button    onClick={this.manageClickAddJob}>Add</button>
                 <button onClick={this.manageClickExit}>Exit</button>
+                
                 </div>
-                </fieldset>)
+                </fieldset>
+                </form>)
             }
         
         return (
-            <div  className='experience' >
-            <div className='section' onMouseEnter={this.manageHover} onMouseLeave={this.manageHoverout}>
+            <div  className='experience'  onMouseEnter={this.manageHover} onMouseLeave={this.manageHoverout}>
+            <div className='section' >
             <label htmlFor="Experience"  >Experience</label>
             
             {addJobButton}
             </div>
             <div id="Experience">{this.state.titles.map((job,index)=>{
                 
-                return(<div className ="item" key={index++} data-key={index} onClick={this.deleteItem}><div><p>{job.startdate}-{job.enddate}</p> <p>{job.title}</p> </div><div><p>{job.company}</p><p>{job.location}</p><p>{job.description}</p></div>  </div>)
+                return(<div className ="item" key={index++} data-key={index} onClick={this.deleteItem}><div><p id="jdate">{job.startdate} - {job.enddate}</p> <p id="jtitle">{job.title}</p> </div><div><p id="jcompany">{job.company}</p><p id="jlocation">{job.location}</p><p id="jdescription">{job.description}</p></div>  </div>)
             })} </div>
             </div>
             

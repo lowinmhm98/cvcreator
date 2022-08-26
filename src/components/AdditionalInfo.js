@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Personalskills } from './Personalskills';
 
 
 class AdditionalInfo extends Component {
@@ -23,13 +24,7 @@ class AdditionalInfo extends Component {
     this.manageHoverImage = this.manageHoverImage.bind(this)
     this.manageHoveroutImage = this.manageHoveroutImage.bind(this)
     this.manageClickaddInfo = this.manageClickaddInfo.bind(this);
-    this.handlePhonePress = this.handlePhonePress.bind(this)
-    this.handleCityPress = this.handleCityPress.bind(this)
-    this.handleEmailPress = this.handleEmailPress.bind(this)
-    this.handleAddressPress = this.handleAddressPress.bind(this)
-    this.handleCityPress = this.handleCityPress.bind(this)
-    this.handleOnlinePress = this.handleOnlinePress.bind(this)
-    this.handleLinkedinPress = this.handleLinkedinPress.bind(this)
+    this.handleInputPress = this.handleInputPress.bind(this)
     this.manageClickExit = this.manageClickExit.bind(this)
     this.manageClickaddImage=this.manageClickaddImage.bind(this)
     this.manageHiddenInput= this.manageHiddenInput.bind(this)
@@ -75,27 +70,28 @@ class AdditionalInfo extends Component {
 
   }
 
-  handleAddressPress(e) {
-    console.log(e.target.value)
+  handleInputPress(e) {
+    console.log(e.target.getAttribute("id"))
+    let id = e.target.getAttribute("id")
     if (e.target.value !== "") {
       this.setState((previousState) => ({
 
-        address: e.target.value,
-        phone: previousState.phone,
-        email: previousState.email,
-        city: previousState.city,
-        online: previousState.online,
-        linkedin: previousState.linkedin
+        address: (id=== "address"? e.target.value: previousState.address),
+        phone:(id=== "phone"? e.target.value: previousState.phone) ,
+        email: (id=== "email"? e.target.value: previousState.email),
+        city: (id=== "city"? e.target.value: previousState.city),
+        online: (id=== "online"? e.target.value: previousState.online),
+        linkedin: (id=== "linkedin"? e.target.value: previousState.linkedin)
       }))
     } else {
       this.setState((previousState) => ({
 
-        address: "123 Address St",
-        phone: previousState.phone,
-        email: previousState.email,
-        city: previousState.city,
-        online: previousState.online,
-        linkedin: previousState.linkedin
+        address:(id=== "address"? "123 Address St": previousState.address) ,
+        phone: (id=== "phone"? "555-555-5555": previousState.phone),
+        email: (id=== "email"? "info@website.com": previousState.email),
+        city: (id=== "city"? "City, ST 55555": previousState.city),
+        online: (id=== "online"? "website.com": previousState.online),
+        linkedin:  (id=== "linkedin"? "user-name": previousState.linkedin)
       }
       ))
     }
@@ -104,147 +100,8 @@ class AdditionalInfo extends Component {
   }
 
 
-  handlePhonePress(e) {
-    if (e.target.value !== "") {
-      this.setState((previousState) => ({
-
-        address: previousState.address,
-        phone: e.target.value,
-        email: previousState.email,
-        city: previousState.city,
-        online: previousState.online,
-        linkedin: previousState.linkedin
-      }
-      ))
-    } else {
-      this.setState((previousState) => ({
-
-        address: previousState.address,
-        phone: "555-555-5555",
-        email: previousState.email,
-        city: previousState.city,
-        online: previousState.online,
-        linkedin: previousState.linkedin
-      }
-      ))
-    }
-
-    return
-  }
-
-  handleEmailPress(e) {
-    if (e.target.value !== "") {
-      this.setState((previousState) => ({
-        address: previousState.address,
-        phone: previousState.phone,
-        email: e.target.value,
-        city: previousState.city,
-        online: previousState.online,
-        linkedin: previousState.linkedin
-      }
-      ))
-    } else {
-      this.setState((previousState) => ({
-
-        address: previousState.address,
-        phone: previousState.phone,
-        email: "info@website.com",
-        city: previousState.city,
-        online: previousState.online,
-        linkedin: previousState.linkedin
-      }
-      ))
-    }
-
-    return
-  }
-
-
-  handleCityPress(e) {
-    if (e.target.value !== "") {
-      this.setState((previousState) => ({
-        address: previousState.address,
-        phone: previousState.phone,
-        email: previousState.email,
-        city: e.target.value,
-        online: previousState.online,
-        linkedin: previousState.linkedin
-      }
-      ))
-    } else {
-      this.setState((previousState) => ({
-
-        address: previousState.address,
-        phone: previousState.phone,
-        email: previousState.email,
-        city: "City, ST 55555",
-        online: previousState.online,
-        linkedin: previousState.linkedin
-      }
-      ))
-    }
-
-    return
-  }
-
-
-  handleOnlinePress(e) {
-    if (e.target.value !== "") {
-      this.setState((previousState) => ({
-        address: previousState.address,
-        phone: previousState.phone,
-        email: previousState.email,
-        city: previousState.city,
-        online: e.target.value,
-        linkedin: previousState.linkedin
-      }
-      ))
-    } else {
-      this.setState((previousState) => ({
-
-        address: previousState.address,
-        phone: previousState.phone,
-        email: previousState.email,
-        city: previousState.city,
-        online: "website.com",
-        linkedin: previousState.linkedin
-      }
-      ))
-    }
-
-    return
-  }
-
-
-
-  handleLinkedinPress(e) {
-    if (e.target.value !== "") {
-      this.setState((previousState) => ({
-        address: previousState.address,
-        phone: previousState.phone,
-        email: previousState.email,
-        city: previousState.city,
-        online: previousState.online,
-        linkedin: e.target.value
-      }
-      ))
-    } else {
-      this.setState((previousState) => ({
-
-        address: previousState.address,
-        phone: previousState.phone,
-        email: previousState.email,
-        city: previousState.city,
-        online: previousState.online,
-        linkedin: "user-name"
-      }
-      ))
-    }
-
-    return
-  }
-
-  manageClickaddImage(event) {
+  
+      manageClickaddImage(event) {
 
     if (event.target.files && event.target.files[0]) {
       let img = event.target.files[0];
@@ -299,18 +156,18 @@ class AdditionalInfo extends Component {
 
 
       firstButton = (<fieldset >
-        <label htmlFor="address">address</label>
-        <input type="text" id="address" onChange={this.handleAddressPress} />
-        <label htmlFor="phone" >phone</label>
-        <input type="text" id="phone" onChange={this.handlePhonePress} />
+        <label htmlFor="address">Address</label>
+        <input type="text" id="address" onChange={this.handleInputPress} />
+        <label htmlFor="phone" >Phone</label>
+        <input type="text" id="phone" onChange={this.handleInputPress} />
         <label htmlFor="email">Email</label>
-        <input type="textfield" id="email" onChange={this.handleEmailPress} />
+        <input type="textfield" id="email" onChange={this.handleInputPress} />
         <label htmlFor="city">City</label>
-        <input type="textfield" id="city" onChange={this.handleCityPress} />
+        <input type="textfield" id="city" onChange={this.handleInputPress} />
         <label htmlFor="online">Online</label>
-        <input type="textfield" id="online" onChange={this.handleOnlinePress} />
+        <input type="textfield" id="online" onChange={this.handleInputPress} />
         <label htmlFor="linkedin">Linkedin</label>
-        <input type="textfield" id="linkedin" onChange={this.handleLinkedinPress} />
+        <input type="textfield" id="linkedin" onChange={this.handleInputPress} />
         <button onClick={this.manageClickExit}>Exit</button>
       </fieldset>)
     }
@@ -321,6 +178,7 @@ class AdditionalInfo extends Component {
           {secondButton}
           <input type="file" id='hidden'  onChange={this.manageClickaddImage}  />
         </div>
+        
         <div className='Tomodify' onMouseEnter={this.manageHover} onMouseLeave={this.manageHoverout}>
           <div>
             <p>Address</p>
@@ -340,11 +198,12 @@ class AdditionalInfo extends Component {
           </div>
           <div>
             <p>Online</p>
-            {this.state.online}
-            {this.state.linkedin}
+            <p>{this.state.online}</p>
+            <p>{this.state.linkedin}linkedin.com</p>
           </div>
           {firstButton}
         </div>
+        <Personalskills/>
 
 
       </div>
