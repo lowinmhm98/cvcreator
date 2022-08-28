@@ -251,7 +251,7 @@ p {
 
 .AdditionalInfo fieldset {
   bottom:0%;
-  font-family: initial;
+  
 }
 
 
@@ -364,7 +364,8 @@ left:40%
   text-transform: uppercase;
   letter-spacing: 1px;
  
-  font-weight: 400;
+  font-weight: 600;
+  font-style: italic;
   
 }
 
@@ -372,6 +373,7 @@ left:40%
  
   font-style: italic;
   font-size:12px;
+  font-weight: 600;
 }
 
 #jcompany,#jschool {
@@ -384,12 +386,14 @@ left:40%
 #jgpa,#jdescription {
   font-style: italic;
   font-size:10px;
+  font-weight:500;
 }
 
-#jjob,#jtitle {
+#jtitle,#jdegree {
     font-weight: 700;
     color: rgba(16, 54, 92, 1);
-    font-size: 18px;
+    font-size: 16px;
+    font-style: italic;
 }
 
 

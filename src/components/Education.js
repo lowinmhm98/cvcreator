@@ -189,7 +189,7 @@ class Education extends Component {
             </div>
             <div id="Education">{this.state.degrees.map((degree,index)=>{
                 
-                return(<div className ="item" key={index++} data-key={index} onClick={this.deleteItem}> <div><p id="jdate">{degree.startdate}-{degree.enddate}</p> <p id="jdegree">{degree.degree}</p> </div><div><p id="jschool">{degree.school}</p><p id= "jlocation">{degree.location}</p><p id="jgpa">{degree.gpa}</p></div></div>)
+                return(<div className ="item" key={index++} data-key={index} onClick={this.deleteItem}> <div><p id="jdate">{degree.startdate} - {degree.enddate}</p> <p id="jdegree">{degree.degree}</p> </div><div><p id="jschool">{degree.school}</p><p id= "jlocation">{degree.location}</p><p id="jgpa">{degree.gpa}</p></div></div>)
             })} </div>
             </div>
             
