@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/cvcreator/static/css/main.6d601d46.css",
+    "main.js": "/cvcreator/static/js/main.e65e03cd.js",
+    "static/media/anonymous.webp": "/cvcreator/static/media/anonymous.efadb13dba95b5bc918b.webp",
+    "index.html": "/cvcreator/index.html",
+    "main.6d601d46.css.map": "/cvcreator/static/css/main.6d601d46.css.map",
+    "main.e65e03cd.js.map": "/cvcreator/static/js/main.e65e03cd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6d601d46.css",
+    "static/js/main.e65e03cd.js"
+  ]
+}
